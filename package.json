@@ -1,0 +1,19 @@
+{
+  "name": "deez-form",
+  "version": "1.0.0",
+  "description": "A package for deserializing json paths in forms into a nested object",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exsjabe/deez-form.git"
+  },
+  "author": "exsjabe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/exsjabe/deez-form/issues"
+  },
+  "homepage": "https://github.com/exsjabe/deez-form#readme"
+}
