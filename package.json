@@ -1,29 +1,45 @@
 {
-  "name": "deez-form",
-  "version": "1.0.0",
-  "description": "A package for deserializing json paths in forms into a nested object",
-  "main": "src/dist/commonjs/index.js",
-  "module": "src/dist/esm/index.js",
-  "scripts": {
-    "test": "node --test",
-    "format": "prettier --write .",
-    "build": "npm run build:esm & npm run build:cjs",
-    "build:esm": "esbuild src/index.mjs --format=esm --platform=neutral --outdir=dist/esm",
-    "build:cjs": "esbuild src/index.mjs --format=cjs --platform=neutral --outdir=dist/commonjs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/exsjabe/deez-form.git"
-  },
-  "type": "module",
-  "author": "exsjabe",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/exsjabe/deez-form/issues"
-  },
-  "homepage": "https://github.com/exsjabe/deez-form#readme",
-  "devDependencies": {
-    "esbuild": "^0.19.4",
-    "prettier": "^3.0.3"
-  }
+    "name": "deez-form",
+    "version": "1.0.0",
+    "description": "A package for deserializing json paths in forms into a nested object",
+    "main": "src/dist/commonjs/index.js",
+    "module": "src/dist/esm/index.js",
+    "scripts": {
+        "test": "node --test",
+        "format": "prettier --write . --cache",
+        "build": "npm run build:esm & npm run build:cjs",
+        "build:esm": "esbuild src/index.js --bundle --format=esm --platform=neutral --outdir=dist/esm",
+        "build:cjs": "esbuild src/index.js --bundle --format=cjs --platform=neutral --outdir=dist/commonjs",
+        "prepublishOnly": "node scripts/generate_dts_bundle.js"
+    },
+    "types": "./types/index.d.ts",
+    "files": [
+        "dist",
+        "types"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/exsjabe/deez-form.git"
+    },
+    "type": "module",
+    "author": "exsjabe",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/exsjabe/deez-form/issues"
+    },
+    "homepage": "https://github.com/exsjabe/deez-form#readme",
+    "devDependencies": {
+        "dts-buddy": "^0.2.5",
+        "esbuild": "^0.19.4",
+        "prettier": "^3.0.3",
+        "tiny-glob": "^0.2.9",
+        "typescript": "~5.0.4"
+    },
+    "exports": {
+        ".": {
+            "types": "./types/index.d.ts",
+            "require": "./src/dist/commonjs/index.js",
+            "import": "./src/dist/esm/index.js"
+        }
+    }
 }
